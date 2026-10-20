@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>URLShort - 심플 URL 단축기</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <!-- 상단 좌측 로고 및 기능 전환 버튼 -->
+  <header class="header">
+    <a href="../index.html" id="logoLink" class="logo-link" title="처음으로">
+      <img src="./img/logo.png" alt="로고" class="logo" />
+    </a>
+    <nav class="nav-buttons" aria-label="주요 기능 이동">
+      <button type="button" class="nav-btn" onclick="location.href='../url2qr/index.html'">QR코드</button>
+      <button type="button" class="nav-btn active" onclick="location.href='./index.html'">URL단축</button>
+    </nav>
+  </header>
+
+  <main class="main-container">
+    <section class="shortener-card">
+      <h1 class="card-title">URL 단축기</h1>
+      <p class="card-desc">긴 URL을 입력하고 단축하기 버튼을 눌러 짧은 URL로 변환하세요.</p>
+
+      <!-- 3-1 & 3-2: URL 입력창 및 단축하기 버튼 (초기 비활성화) -->
+      <form id="shortenForm" class="url-form" novalidate>
+        <label for="urlInput" class="sr-only">URL 입력</label>
+        <input
+          type="text"
+          id="urlInput"
+          class="url-input"
+          placeholder="URL 입력 (예: https://example.com/very/long/path)"
+          autocomplete="off"
+          autofocus
+        />
+        <button type="submit" id="shortenBtn" class="submit-btn" disabled>단축하기</button>
+      </form>
+
+      <p id="statusMsg" class="status-msg" role="status" aria-live="polite"></p>
+
+      <!-- 3-1 & 3-4: 읽기 전용 출력 상자 및 복사 버튼 -->
+      <div class="output-group">
+        <label for="shortUrlOutput" class="output-label">단축된 URL 결과</label>
+        <div class="output-row">
+          <input
+            type="text"
+            id="shortUrlOutput"
+            class="output-input"
+            placeholder="단축된 URL이 여기에 표시됩니다"
+            readonly
+          />
+          <button type="button" id="copyBtn" class="copy-btn">복사</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="./script.js"></script>
+</body>
+</html>

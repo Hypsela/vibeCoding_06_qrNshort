@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>URL2QR - 심플 QR 코드 생성기</title>
+  <link rel="stylesheet" href="./style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
+</head>
+<body>
+  <!-- 상단 좌측 로고 및 기능 전환 버튼 -->
+  <header class="header">
+    <a href="../index.html" id="logoLink" class="logo-link" title="처음으로">
+      <img src="./img/logo.png" alt="URL2QR 로고" class="logo" />
+    </a>
+    <nav class="nav-buttons" aria-label="주요 기능 이동">
+      <button type="button" class="nav-btn active" onclick="location.href='./index.html'">QR코드</button>
+      <button type="button" class="nav-btn" onclick="location.href='../urlShort/index.html'">URL단축</button>
+    </nav>
+  </header>
+
+  <!-- 정중앙 QR 코드 영역 -->
+  <main class="main-container">
+    <section id="qrSection" class="qr-section" aria-live="polite">
+      <div id="qrCard" class="qr-card" role="button" tabindex="0" title="클릭하여 JPG로 다운로드">
+        <canvas id="qrCanvas" width="320" height="320"></canvas>
+        <div class="qr-overlay">
+          <span>클릭하여 JPG 다운로드</span>
+        </div>
+      </div>
+      <p class="qr-hint">QR 코드를 클릭하면 <strong>JPG 파일</strong>로 다운로드됩니다.</p>
+      <p id="qrUrlDisplay" class="qr-url-display"></p>
+    </section>
+
+    <!-- URL 입력 폼 (초기: 정중앙 -> 생성 후: 하단 이동) -->
+    <section id="inputSection" class="input-section">
+      <form id="qrForm" class="url-form" novalidate>
+        <input
+          type="text"
+          id="urlInput"
+          class="url-input"
+          placeholder="URL을 입력하세요 (예: https://example.com)"
+          autocomplete="off"
+          autofocus
+          required
+        />
+        <button type="submit" id="submitBtn" class="submit-btn">확인</button>
+      </form>
+      <p id="errorMsg" class="error-msg" role="alert"></p>
+    </section>
+  </main>
+
+  <script src="./script.js"></script>
+</body>
+</html>

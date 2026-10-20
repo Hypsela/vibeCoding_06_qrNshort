@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>URL 툴박스 - QR코드 & URL단축</title>
+  <link rel="stylesheet" href="./url2qr/style.css" />
+  <style>
+    .hub-card {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      padding: 48px 40px;
+      border-radius: 28px;
+      border: 2px solid var(--border-color);
+      box-shadow: var(--shadow-lg);
+      text-align: center;
+      width: min(480px, 90vw);
+    }
+
+    .hub-title {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--brand-black);
+      margin-bottom: 10px;
+    }
+
+    .hub-desc {
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+    }
+
+    .hub-btn-group {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+    }
+
+    .hub-btn {
+      flex: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      background: linear-gradient(135deg, #facc15 0%, #fbbd08 55%, #f59e0b 100%);
+      color: var(--brand-black);
+      border: none;
+      border-radius: 999px;
+      padding: 16px 24px;
+      font-size: 1.08rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 6px 16px rgba(245, 158, 11, 0.3);
+      transition: filter 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+    }
+
+    .hub-btn:hover {
+      filter: brightness(1.04);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 22px rgba(245, 158, 11, 0.42);
+    }
+
+    .hub-btn:active {
+      transform: scale(0.97);
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <a href="./index.html" class="logo-link" title="홈으로">
+      <img src="./url2qr/img/logo.png" alt="로고" class="logo" />
+    </a>
+    <nav class="nav-buttons" aria-label="주요 기능 이동">
+      <button type="button" class="nav-btn" onclick="location.href='./url2qr/index.html'">QR코드</button>
+      <button type="button" class="nav-btn" onclick="location.href='./urlShort/index.html'">URL단축</button>
+    </nav>
+  </header>
+
+  <main class="main-container">
+    <section class="hub-card">
+      <h1 class="hub-title">QR코드 &amp; URL단축 웹 앱</h1>
+      <p class="hub-desc">원하시는 기능을 선택해 주세요.</p>
+      <div class="hub-btn-group">
+        <button type="button" class="hub-btn" onclick="location.href='./url2qr/index.html'">QR코드</button>
+        <button type="button" class="hub-btn" onclick="location.href='./urlShort/index.html'">URL단축</button>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
